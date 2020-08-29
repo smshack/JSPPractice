@@ -1,6 +1,8 @@
-package lecture3.ex;
+package com.javalec5.ex;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,24 +12,37 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HelloWorld
  */
-@WebServlet(description = "자바 시험 프로젝트", urlPatterns = { "/Hi" }) 
+@WebServlet("/HelloWorld")
 public class HelloWorld extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
     public HelloWorld() {
+        super();
         // TODO Auto-generated constructor stub
-    	super();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		System.out.println("HelloWorld!!! doGet");
+		System.out.println("HelloWorld~~doGet");
+		
+		response.setContentType("text/html; charset=euc-kr");
+		PrintWriter writer = response.getWriter();//웹 브라우저에서 출력하기 위한 스트림
+		
+		writer.println("<html>");
+		writer.println("<head>");
+		writer.println("</head>");
+		writer.println("<body>");
+		writer.println("<h1>HelloWorld~~~doGet</h1>");
+		writer.println("</body>");
+		writer.println("</html>");
+		
+		writer.close();
+		
 	}
 
 	/**
@@ -35,7 +50,6 @@ public class HelloWorld extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }

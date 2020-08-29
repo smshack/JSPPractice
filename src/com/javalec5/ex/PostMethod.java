@@ -1,6 +1,8 @@
-package lecture3.ex;
+package com.javalec5.ex;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,18 +10,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HelloWorld
+ * Servlet implementation class PostMethod
  */
-@WebServlet(description = "자바 시험 프로젝트", urlPatterns = { "/Hi" }) 
-public class HelloWorld extends HttpServlet {
+@WebServlet("/PostMethod")
+public class PostMethod extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public HelloWorld() {
+    public PostMethod() {
+        super();
         // TODO Auto-generated constructor stub
-    	super();
     }
 
 	/**
@@ -27,7 +29,7 @@ public class HelloWorld extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("HelloWorld!!! doGet");
+		System.out.println("doGet");
 	}
 
 	/**
@@ -35,7 +37,17 @@ public class HelloWorld extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		System.out.println("doPost");
+		
+		response.setContentType("text/html; charset=euc-kr");
+		PrintWriter writer = response.getWriter();
+		writer.println("<html>");
+		writer.println("<head>");
+		writer.println("</head>");
+		writer.println("<body>");
+		writer.println("<h1>POST 방식 입니다. 따라서 doPost 메소드 호출 되었습니다.</h1>");
+		writer.println("</body>");
+		writer.println("</html>");
 	}
 
 }
