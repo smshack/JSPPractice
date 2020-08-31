@@ -64,5 +64,14 @@
    	<listener-class>com.javalec8.ex.ContextListenerEx</listener-class>
    </listener> -->
    
-   
+   <!-- 예외 처리 -->
+   <!-- <error-page>
+   	<error-code>404</error-code>
+   	<location>/lec15/error404.jsp</location>
+   </error-page>
+   <error-page>
+   	<error-code>500</error-code>
+   	<location>/lec15/error500.jsp</location>
+   </error-page> -->
+   <!-- 예외 처리 -->
 </web-app>
